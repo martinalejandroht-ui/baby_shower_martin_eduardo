@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Shower Martín Eduardo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Overlay Inicial para Audio -->
+    <div id="welcome-overlay" class="overlay flex-center">
+        <div class="welcome-card">
+            <h1>¡Estás Invitado!</h1>
+            <p>Baby Shower de Martín Eduardo</p>
+            <button id="abrir-invitacion" class="btn-primary">Abrir Invitación <i class="fa-solid fa-envelope-open-text"></i></button>
+        </div>
+    </div>
+
+    <!-- Audio de Fondo (Oculto) mediante YouTube Iframe API -->
+    <div id="youtube-audio" style="display: none;"></div>
+
+    <div class="main-container">
+        <!-- Hero Section -->
+        <header class="hero section fade-in">
+            <div class="dumbo-container">
+                <img src="assets/dumbo.jpeg" alt="Dumbo" class="dumbo-image floating">
+            </div>
+            
+            <h1 class="title">Martín Eduardo</h1>
+            <p class="subtitle">¡Celebra con nosotros su próximo vuelo!</p>
+            <div class="divider">
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="intro-text">
+                Entre sueños, ilusión y mucho amor, esperamos la llegada de nuestro bebé.<br>
+                Nos haría muy felices que nos acompañaras a celebrar este momento tan especial.
+            </p>
+        </header>
+
+        <!-- Cuándo y Dónde -->
+        <section class="details-section section fade-in">
+            <h2 class="section-title">Cuándo y Dónde</h2>
+            
+            <div class="cards-container">
+                <div class="detail-card glass">
+                    <i class="fa-regular fa-calendar-check icon-large"></i>
+                    <h3>Fecha y Hora</h3>
+                    <p class="big-text">02</p>
+                    <p class="month">MAYO</p>
+                    <p class="time">3:30 PM</p>
+                </div>
+                
+                <div class="detail-card glass">
+                    <i class="fa-solid fa-location-dot icon-large"></i>
+                    <h3>Ubicación</h3>
+                    <p>Av. Colón 423. Centro Tepeaca</p>
+                    <a href="https://maps.google.com/?q=Av.+Colón+423.+Centro+Tepeaca" target="_blank" class="btn-secondary">Ver Mapa <i class="fa-solid fa-map-location-dot"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mesa de Regalos -->
+        <section class="registry-section section fade-in">
+            <div class="registry-card glass">
+                <i class="fa-solid fa-gift icon-large color-liverpool"></i>
+                <h2>Mesa de Regalos</h2>
+                <p>Nuestra mesa de regalos está en Liverpool.</p>
+                <p class="registry-number">No. de Evento: <strong>51965733</strong></p>
+                <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51965733" target="_blank" class="btn-primary liverpool-btn">
+                    Ver Mesa de Regalos
+                </a>
+            </div>
+        </section>
+
+        <!-- Galería de Fotos -->
+        <section class="gallery-section section fade-in">
+            <h2 class="section-title">Nuestros Momentos</h2>
+            <div class="masonry-gallery">
+                <div class="gallery-item"><img src="assets/Fotos/Foto1.jpeg" alt="Momento 1" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/Fotos/Foto2.jpeg" alt="Momento 2" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/Fotos/Foto3.jpeg" alt="Momento 3" loading="lazy"></div>
+                <div class="gallery-item"><img src="assets/Fotos/Foto4.jpeg" alt="Momento 4" loading="lazy"></div>
+            </div>
+        </section>
+
+        <!-- Video Revelación -->
+        <section class="video-section section fade-in">
+            <h2 class="section-title">Nuestra Revelación</h2>
+            <div class="video-wrapper glass">
+                <video controls poster="assets/Fotos/Foto1.jpeg" preload="metadata">
+                    <source src="assets/Video/Video1.mp4" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section class="rsvp-section section fade-in">
+            <h2 class="section-title">Confirma tu Asistencia</h2>
+            <div class="rsvp-card glass">
+                <p>Por favor, confírmanos tu asistencia para contemplarte.</p>
+                
+                <form id="rsvp-form" class="rsvp-form">
+                    <div class="input-group">
+                        <label for="name">Nombre y Apellido(s):</label>
+                        <input type="text" id="name" required placeholder="Escribe tu nombre completo">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="attendance">¿Asistirás?</label>
+                        <select id="attendance" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="si">¡Sí, ahí estaré!</option>
+                            <option value="no">No podré asistir</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" id="guests-group" style="display: none;">
+                        <label for="guests">Número de pases / personas:</label>
+                        <input type="number" id="guests" min="1" max="10" placeholder="Ej. 2">
+                    </div>
+
+                    <p class="whatsapp-note"><i class="fa-brands fa-whatsapp"></i> Se enviará un mensaje automático a nuestro WhatsApp.</p>
+                    <button type="submit" class="btn-whatsapp">
+                        Confirmar Asistencia <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Con cariño, Familia <i class="fa-solid fa-heart" style="color:#f29d9d"></i></p>
+        </footer>
+
+        <!-- Controles de música fijos -->
+        <button id="music-toggle" class="music-btn" style="display: none;">
+            <i class="fa-solid fa-music"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
